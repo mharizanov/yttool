@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yttool"
+version = "0.1.0"
+description = "Search YouTube for a topic, fetch transcripts of the top hits, and produce LLM summaries with timestamp deep links."
+requires-python = ">=3.11"
+dependencies = [
+    "yt-dlp>=2025.1.1",
+    "youtube-transcript-api>=1.2,<2",
+    "openai>=1.60",
+    "tenacity>=8.2",
+]
+
+[project.optional-dependencies]
+whisper = ["faster-whisper>=1.1", "imageio-ffmpeg"]
+gemini = ["google-genai>=1.0"]
+dev = ["pytest", "ruff"]
+
+[project.scripts]
+yttool = "yttool.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+yttool = ["prompts/*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff.lint]
+# BLE001: broad excepts are deliberate - the batch must never abort on one video.
+# DTZ005: naive local timestamps are fine for run-directory names.
+# PLW1510/RUF046: stylistic noise.
+ignore = ["BLE001", "DTZ005", "PLW1510", "RUF046"]

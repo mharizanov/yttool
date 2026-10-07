@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Generated runs and cached media
+runs/
+cache/
+*.m4a
+*.webm
+*.wav
+*.mp3
+*.vtt
+*.srt
+
+# Local configuration and secrets
+.env
+.env.*
+config.json
+*.token
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
