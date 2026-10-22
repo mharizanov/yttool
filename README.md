@@ -15,9 +15,10 @@ yttool "topic" --since year --min-duration 20m   # time window + length filters
 
 **The problem.** A large share of practical knowledge — conference talks, expert interviews, practitioner reviews, firsthand experience — lives only in YouTube videos, where it is slow to consume and impossible to skim, search, or cite. Researching a topic properly means watching hours of video of very uneven quality, and even then you can't easily compare what different videos claim or jump back to the moment a claim was made. yttool turns that into a readable, verifiable knowledge extract: it finds the relevant videos, reads them (and their comment sections) for you, tells you what they collectively say, where they disagree, which ones are actually worth your time — and every claim links to the exact second it was said.
 
-**Does anything like it exist?** Honestly: the pieces do, the whole doesn't (as of Aug 2026):
+**Does anything like it exist?** Honestly: the pieces do, the whole doesn't (as of Oct 2026):
 
 - [Fabric](https://github.com/danielmiessler/Fabric) (~43k★) and [steipete/summarize](https://github.com/steipete/summarize) (~6k★) are excellent, well-maintained *single-URL* summarizers — you give them a video, they summarize it. Neither searches, batches by topic, synthesizes across videos, mines comments, or anchors claims to timestamps.
+- [NotebookLM](https://notebooklm.google.com) (now Gemini Notebook) is good at answering questions about videos you add to a notebook, but its research features search the web and Google Drive, not YouTube; it ignores comments, and it cannot import a video without captions.
 - The few projects matching the full search→batch→synthesize loop are single-digit-star, effectively unmaintained hobby repos; [yt-fts](https://github.com/NotJoeMartinez/yt-fts) (transcript full-text search, 1.8k★) was declared abandoned by its maintainer.
 - Nothing found does the parts this tool leans on hardest: LLM-planned multi-query search for compound topics, upvote-weighted comment mining, speaker diarization with real names, cross-video disagreement analysis, or code-verified timestamp/comment citations (LLMs asked for timestamps directly will fabricate them).
 
